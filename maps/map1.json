@@ -1,0 +1,25 @@
+{
+  "tiles": {
+    "a" : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "b" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "c" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],
+    "d" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "e" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "f" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "g" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "h" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],
+    "i" : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "j" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1" ],
+    "k" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "l" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "m" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "n" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],
+    "o" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ]
+  },
+  "config": {
+    "tile_width": 32,
+    "tile_height": 32,
+    "width": 14,
+    "height": 15
+  }
+}
