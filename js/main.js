@@ -13,7 +13,10 @@ var Container = PIXI.Container,
 
 //Variables
 var viewWidth,
-    viewHeight;
+    viewHeight,
+    scale = 2,
+    hero,
+    mapJSON;
 
 //Create the stage and renderer
 var stage = new Container(),
@@ -129,7 +132,6 @@ function setup() {
         resources["hero"].textures["heroFront1"]
     );
     hero.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
-    var scale = 2;
     hero.scale.x = scale;
     hero.scale.y = scale;
 
@@ -154,7 +156,6 @@ function setup() {
 function mapGenerator() {
     var tile;
     var line = 1;
-    var scale = 2;
     var height = mapJSON.config.tile_height * scale;
     var width = mapJSON.config.tile_width * scale;
     var positionX = 0;
