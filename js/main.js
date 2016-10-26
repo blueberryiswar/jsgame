@@ -17,13 +17,16 @@ var viewWidth,
 
 //Create the stage and renderer
 var stage = new Container(),
-    renderer = autoDetectRenderer(256, 256, {antialias: false, transparent: false, resolution: 1});
+    renderer = autoDetectRenderer(1024, 960, {antialias: false, transparent: false, resolution: 1});
 document.body.appendChild(renderer.view);
 
-renderer.view.style.position = "absolute";
+renderer.view.style.position = "relative";
+renderer.view.style.marginLeft = "auto";
+renderer.view.style.marginRight = "auto";
+renderer.view.style.marginTop = "10px";
 renderer.view.style.display = "block";
-renderer.autoResize = true;
-resizeStage();
+//renderer.autoResize = true;
+//resizeStage();
 
 
 //load an image and run the `setup` function when it's done
@@ -50,11 +53,11 @@ function resizeStage() {
     renderer.resize(window.innerWidth, window.innerHeight);
 }
 
-window.addEventListener("resize", function () {
+/*window.addEventListener("resize", function () {
     if (viewWidth != window.innerWidth || viewHeight != window.innerHeight) {
         resizeStage();
     }
-});
+});*/
 
 function loadJSON(callback) {
 
@@ -85,7 +88,7 @@ function loadProgressHandler(loader, resource) {
 var hero;
 var mapJSON;
 
-var jsonM ='{"tiles": {"a"  : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"b"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"c"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],"d"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"e"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"f"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"g"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"h"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],"i"  : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"j" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1" ],"k" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"l" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"m" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"n" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"o" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ]}, "config": {"tile_width": 16,"tile_height": 16,"width": 14,"height": 15}}'
+var jsonM ='{"tiles": {"a"  : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"b"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"c"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],"d"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"e"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"f"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"g"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"h"  : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1" ],"i"  : [ "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"j" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1" ],"k" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"l" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass2", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"m" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"n" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass3", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"o" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ],"p" : [ "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1", "grass1" ]}, "config": {"tile_width": 32,"tile_height": 32,"width": 14,"height": 16}}'
 mapJSON = JSON.parse(jsonM);
 
 console.log(mapJSON);
@@ -120,18 +123,23 @@ function setup() {
 
     mapGenerator();
 
+
+
     hero = new Sprite(
         resources["hero"].textures["heroFront1"]
     );
-
+    hero.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+    var scale = 2;
+    hero.scale.x = scale;
+    hero.scale.y = scale;
 
 
     // Change initial position
     hero.x = stage.width / 2;
     hero.y = stage.height / 2;
 
-    hero.vx = 2;
-    hero.vy = 2;
+    hero.vx = 3;
+    hero.vy = 3;
 
     //hero.pivot.set(hero.width/2, hero.height/2)
     //hero.rotation = 0.5;
@@ -146,12 +154,11 @@ function setup() {
 function mapGenerator() {
     var tile;
     var line = 1;
-    var scale = 1;
+    var scale = 2;
     var height = mapJSON.config.tile_height * scale;
     var width = mapJSON.config.tile_width * scale;
     var positionX = 0;
     var positionY = 0;
-    var name = "";
     var array = [];
 
     while (line < mapJSON.config.height) {
@@ -200,6 +207,7 @@ function mapGenerator() {
         positionY += height;
         positionX = 0;
     }
+    tile.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
 }
 
 function gameLoop() {
